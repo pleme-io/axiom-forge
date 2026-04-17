@@ -10,6 +10,15 @@ for a new Rust primitive — a new enum variant, a new unit struct — runs
 seven structural proofs, and emits Rust source that `rustc` is the final
 gatekeeper on.
 
+axiom-forge is specifically **gates 6 + 7** of the ten-gate
+forced-realization lattice defined in
+`pleme-io/mathscape/docs/arch/machine-synthesis.md`. Gates 1–5 (local
+compression/coverage/irreducibility + temporal condensation/
+cross-corpus) are the caller's responsibility. This crate is a pure
+function: proposal → (Certificate | Violations) → emission. It has no
+opinion on reward, does not track history, and does not rewrite
+libraries. See `docs/MATHSCAPE_HANDOFF.md` for the bridge protocol.
+
 ```
 Lisp proposal (sexpr)  ──┐
                          │  verify  (7 obligations)
