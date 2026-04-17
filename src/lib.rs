@@ -54,8 +54,12 @@ pub mod proposal;
 pub mod verify;
 pub mod emit;
 pub mod vector;
+pub mod primitive_growth;
 
 pub use proposal::{AxiomKind, AxiomProposal, FieldSpec, FieldTy};
 pub use verify::{verify, Certificate, ProofObligation, Violation};
 pub use emit::{emit_rust, EmissionError, EmissionOutput};
 pub use vector::FrozenVector;
+pub use primitive_growth::{
+    AxiomArtifact, AxiomForge, AxiomGrowthError, GrowthOutcome, PrimitiveGrowth, StepResult,
+};
