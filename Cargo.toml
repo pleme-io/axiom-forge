@@ -12,7 +12,7 @@ pedantic = "warn"
 
 [dependencies]
 blake3 = "1.8"
-iac-forge = { git = "https://github.com/pleme-io/iac-forge" }
+iac-forge = "0.1"
 thiserror = "2"
 # We intentionally DON'T pull in syn/quote at the core layer. Emission
 # uses string templates + content-hashed determinism. A downstream
