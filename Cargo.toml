@@ -1,0 +1,29 @@
+[package]
+name = "axiom-forge"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.89.0"
+description = "Lisp → Rust axiom generation with invariant proofs. The self-hosting primitive layer."
+repository = "https://github.com/pleme-io/axiom-forge"
+license = "MIT"
+
+[lints.clippy]
+pedantic = "warn"
+
+[dependencies]
+blake3 = "1.8"
+iac-forge = { git = "https://github.com/pleme-io/iac-forge" }
+thiserror = "2"
+# We intentionally DON'T pull in syn/quote at the core layer. Emission
+# uses string templates + content-hashed determinism. A downstream
+# `axiom-forge-syn` feature crate can add syn-backed parsing if
+# desired; the core here is dependency-minimal and audit-friendly.
+
+[dev-dependencies]
+proptest = "1"
+
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = 3
+strip = true
